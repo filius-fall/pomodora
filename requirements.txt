@@ -1,0 +1,11 @@
+attrs==20.3.0
+click==7.1.2
+iniconfig==1.1.1
+packaging==20.9
+pluggy==0.13.1
+-e git+git@github.com:filius-fall/pomodora.git@23cc0ca8d181abb55dbf9e7bdd5644efef645a47#egg=pomodora
+py==1.10.0
+pyparsing==2.4.7
+pytest==6.2.3
+tabulate==0.8.9
+toml==0.10.2
