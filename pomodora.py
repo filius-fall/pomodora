@@ -2,6 +2,7 @@ import click
 import csv
 import time
 from tabulate import tabulate
+import os
 # from datetime import datetime
 
 @click.group(invoke_without_command = True)
@@ -13,20 +14,24 @@ def timer():
 @click.option('--message','-m',default = "Success",type = str)
 def start(duration,message):
     
-    start_counter = time.localtime().tm_sec
+    # start_counter = time.localtime().tm_sec
+    start_counter = int(time.time())
     start_time = str(time.localtime().tm_hour) + ':' + str(time.localtime().tm_min) + ':' + str(time.localtime().tm_sec)
 
     print(start_time)
 
     while True:
-        end_counter = time.localtime().tm_sec
+        # end_counter = time.localtime().tm_sec
+
+        end_counter = int(time.time())
         
 
-        if end_counter - start_counter == duration * 60 :
-            passed_time = end_counter - start_counter    
+        if end_counter - start_counter == duration * 60:
+            passed_time = end_counter - start_counter  
+              
             click.echo("End of timer")
             break
-        
+        print(end_counter-start_counter)
         passed_time = str(end_counter - start_counter) + 'Min'
 
     if os.path.isfile('data.csv'):
