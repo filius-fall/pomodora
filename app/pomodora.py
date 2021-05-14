@@ -37,7 +37,7 @@ def start(duration,message):
             row.writerow([start_time,end_time,passed_time,message])
     else:
         if os.path.isfile('data.csv'):
-            with open('data.csv','a',newline='') as file:
+            with open('data.csv','a+',newline='') as file:
                 end_time = str(time.localtime().tm_hour) + ':' + str(time.localtime().tm_min) + ':' + str(time.localtime().tm_sec)  
                 row = csv.writer(file)
                 row.writerow(['start_time','end_time','duration','comments'])
@@ -46,7 +46,7 @@ def start(duration,message):
 
 @timer.command()
 def stats():
-    with open('data.csv','r',newline='') as file:
+    with open('data.csv','r+',newline='') as file:
         row = csv.reader(file)
 
 
